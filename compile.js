@@ -76,6 +76,7 @@ class Compile {
 CompileUnit = {
     getVal(vm, expr) {
         expr = expr.split('.');
+        // debugger;
         return expr.reduce((prev, next) => {
             return prev[next]
         }, vm.$data)

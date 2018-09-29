@@ -24,16 +24,26 @@
 <script src="compile.js"></script>
 <script src="MVVM.js"></script>
 <script>
+    var arr = [1, 2, 3, 4, 5];
+    sum = arr.reduce(function (prev, cur, index, arr) {
+        debugger;
+        console.log(prev, cur, index);
+        return prev + cur;
+    },-10)
+
+    console.log(arr, sum);
+    
+
     let vm = new MVVM({
         el: '#app',
         data: {
-            message:{
-                a:10
+            message: {
+                a: 10
             },
-            a:{
-                b:10,
-                c:{
-                    d:10
+            a: {
+                b: 10,
+                c: {
+                    d: 10
                 }
             }
         }

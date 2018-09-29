@@ -20,7 +20,6 @@ class Observer {
             enumerable: true, // 可枚举
             configurable: true, // 可删除
             get() { // 当取值时候 调用的方法
-
                 // 如果 有watcher 监控，就放在 Dep 数组里面。每个数据对象 对应一个数组。上面 get 
                 Dep.target && dep.addSub(Dep.target);
                 return value;
@@ -50,3 +49,62 @@ class Dep{
         this.subs.forEach(watcher=>watcher.update())
     }
 }
+
+
+
+// ['a','b','c'].reduce((prev,next,index)=>{
+//     console.log(prev,next,index)
+//     return [prev]
+// },{d:1})
+
+
+// var data={
+//     message:'hello',
+//     person:{
+//         name:'zhangsan',
+//         family:{
+//             name:'flow',
+//             address:'shandong'
+//         }
+//     }
+// }
+// observe(data)
+
+// function observe(data){
+//     if (!data || typeof data !== 'object') {
+//         return
+//     }
+//     Object.keys(data).forEach(key=>{
+//         console.log(key)
+//         defineReactive(data,key,data[key])
+//         observe(data[key])
+//     })
+// }
+
+
+function defineReactive(obj, key, value) {
+    Object.defineProperty(obj, key, {
+        enumerable: true, // 可枚举
+        configurable: true, // 可删除
+        get() { // 当取值时候 调用的方法
+            console.log(value);
+            return value;
+        },
+        set(newValue) {
+            console.log(newValue,value)
+            if (newValue != value) {
+                value = newValue
+            }
+        }
+    })
+}
+
+
+
+var  arr = [1, 2, 3, 4, 5];
+sum = arr.reduce(function(prev, cur, index, arr) {
+
+    // console.log(prev, cur, index);
+    return prev + cur;
+})
+console.log(arr, sum);
