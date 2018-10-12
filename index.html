@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    </style>
 </head>
+
 <body>
     <div id="app">
-        <input type="text" v-model="message">
-        {{message}}
+        <input type="text" v-model="message"> {{message}}
     </div>
 </body>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     let vm = new Vue({
-        el:'#app',
-        data:{
-            message:'hello'
+        el: '#app',
+        data: {
+            message: 'hello'
         }
     })
+
+
+// promise1 timeout1  timeout2 promise2
+
 </script>
+
+
 </html>
