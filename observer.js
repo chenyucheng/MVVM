@@ -18,6 +18,7 @@ class Observer {
         let dep = new Dep();
         Object.defineProperty(obj, key, {
             enumerable: true, // 可枚举
+            //writable:true,// 可修改
             configurable: true, // 可删除
             get() { // 当取值时候 调用的方法
                 // 如果 有watcher 监控，就放在 Dep 数组里面。每个数据对象 对应一个数组。上面 get 
